@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Funcionário</title>
+    <link rel="stylesheet" href="style/style.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="user_page.js"></script>
+
+</head>
+<body>
+
+    <div class="header" id="header"></div>
+
+    <div class="registroFuncionario-container">
+        <!-- Container para informações do usuário -->
+        <div id="info-usuario" style="display:none;">
+            <h2 id="infos_users">Informações do Usuário</h2>
+            <div class="user-info"></div>
+        </div>
+
+        <!-- Container para formulário de cadastro -->
+        <div id="formulario-cadastro" style="display:none;">
+            <h2>Registro de Funcionário</h2>
+            <form id="funcionarioForm">
+                <div class="input-group">
+                    <label for="cargo">Cargo:</label>
+                    <select id="cargo" name="cargo" required>
+                        <option value="" disabled selected>Selecione seu Cargo</option>
+                        <option value="Gestor">Gestor</option>
+                        <option value="Engenheiro">Engenheiro</option>
+                        <option value="Estagiário">Estagiário</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="tecnologia">Tecnologia:</label>
+                    <select id="tecnologia" name="tecnologia" required>
+                        <option value="" disabled selected>Selecione a Tecnologia</option>
+                        <option value="Aeronáutica">Aeronáutica</option>
+                        <option value="Elétrica">Elétrica</option>
+                        <option value="Sistemas">Sistemas</option>
+                        <option value="Software">Software</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="siteLocation">Local de Trabalho:</label>
+                    <select id="siteLocation" name="siteLocation" required>
+                        <option value="" disabled selected>Selecione o Local de Trabalho</option>
+                        <option value="SJK">SJK</option>
+                        <option value="GPX">GPX</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Campinas">Campinas</option>
+                        <option value="São Paulo">São Paulo</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btnRegistrar">Cadastrar</button>
+
+                <!-- Mensagem de erro/sucesso -->
+                <p id="mensagem" style="display:none;"></p>
+            </form>
+        </div>
+    </div>

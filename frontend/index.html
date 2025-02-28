@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "../../backend/check_login.php",
+                type: "GET",
+                dataType: "json",
+                success: function(response) {
+                    if (response.usuarioLogado) {
+                        window.location.href = "home.html"; // Redireciona se estiver logado
+                    } else {
+                        window.location.href = "login.html"; // Redireciona para login se não estiver logado
+                    }
+                },
+                error: function() {
+                    window.location.href = "login.html"; // Em caso de erro, redireciona para login
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

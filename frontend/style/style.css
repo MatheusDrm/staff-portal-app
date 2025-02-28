@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0; 
+}
+
+/* CSS específico para a tela de login */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.login-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Defina uma largura fixa para manter centralizado */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background: #0056b3;
+}
+
+.erro {
+    color: white;
+    background-color: #e74c3c; /* Vermelho forte */
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 15px;
+    font-weight: bold;
+    display: none;
+    width: 80%;
+    opacity: 1;
+    transition: opacity 1s easy-out;
+}
+
+.register-link {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+
+.sucesso {
+    color: white;
+    background-color: #28a745; 
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+    align-self: center;
+    font-size: 12px;
+    margin-top: 25px; 
+    margin-bottom: 15px; 
+    margin: auto;
+    font-weight: bold;
+    width: 80%;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+
+
+/* Container do formulário */
+.registroFuncionario-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    margin: 50px auto;
+}
+
+/* Título */
+.registroFuncionario-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilização dos campos de entrada */
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fff;
+    cursor: pointer;
+}
+
+/* Estilização específica do botão de cadastro */
+#btnRegistrar {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#btnRegistrar:hover {
+    background: #0056b3;
+}
+.user-info {
+    background: #ffffff; /* Fundo branco para integrar com o container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    text-align: left;
+    border-left: 5px solid #007bff; /* Barra lateral azul para destaque */
+    max-width: 400px;
+    margin: 20px auto; /* Centraliza a div */
+}
+
+.user-info p {
+    font-size: 16px;
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.user-info p strong {
+    color: #007bff; /* Azul para destacar os títulos */
+    font-weight: bold;
+}
+
+
+
+.registroFuncionario-container #infos_users{
+    font-size: 20px;
+    margin: 8px 0;
+    color: #007bff;
+
+}

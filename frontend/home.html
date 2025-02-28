@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- O header será carregado aqui via AJAX -->
+    <div class="header" id="header"></div>
+
+    <div style="text-align: center; margin-top:50px;">
+        <h1 id="welcome-message"></h1>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".header").load("header.html")
+
+            $.ajax({
+                url: "../backend/check_login.php",
+                type: "GET",
+                dataType: "json",
+                success: function(response) {
+                    if (!response.usuarioLogado) {
+                        window.location.href = "login.html"; // Redireciona se não estiver logado
+                    } else {
+                        // Buscar ID do usuário
+                        $.ajax({
+                            url: "../backend/get_user_id.php",
+                            type: "GET",
+                            dataType: "json",
+                            success: function(userResponse) {
+                                if (userResponse.success) {
+                                    $("#welcome-message").text("Bem-vindo à Home " + userResponse.username + "!");
+                                } else {
+                                    console.error(userResponse.error);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
