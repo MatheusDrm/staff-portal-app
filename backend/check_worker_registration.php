@@ -1,7 +1,7 @@
 <?php
     session_start();
     header("Content-Type: application/json");
-    include 'config/pdo_db.php';
+    include __DIR__ . '/config/pdo_db.php';
 
     // Garante que o usuário está autenticado
     if (!isset($_SESSION['usuario'])) {

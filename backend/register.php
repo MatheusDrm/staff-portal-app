@@ -1,7 +1,7 @@
 <?php
 session_start();
 header("Content-Type: application/json");
-include '../config/pdo_db.php';
+include __DIR__ . '/config/pdo_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);

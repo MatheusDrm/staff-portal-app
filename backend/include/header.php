@@ -2,6 +2,14 @@
 session_start();
 header("Content-Type: application/json");
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Max-Age: 86400"); 
+
+// Defina a URL base do frontend
+$FRONTEND_URL = "http://localhost:8080"; // Mude para "http://frontend:80" no Docker
+
 // Verifica se o usuário está logado
 $usuarioLogado = isset($_SESSION['usuario']) ? true : false;
 
@@ -11,11 +19,13 @@ $headerHtml = '
     <nav>
         <h2>Matriz de Ensaios</h2>
         <ul>
-            <li><a href="../frontend/home.html">Home</a></li>
-            <li><a href="../frontend/user_page.html">User Profile</a></li>';
+            <li><a href="'.$FRONTEND_URL.'/home.html">Home</a></li>
+            <li><a href="'.$FRONTEND_URL.'/user_page.html">User Profile</a></li>';
+
 if ($usuarioLogado) {
-    $headerHtml .= '<li><button class="logout">Logout</a></li>';
+    $headerHtml .= '<li><button class="logout">Logout</button></li>';
 }
+
 $headerHtml .= '
         </ul>
     </nav>

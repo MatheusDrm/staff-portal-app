@@ -1,3 +1,5 @@
+import API_URL from "./config.js";
+
 $(document).ready(function() {
     $("#loginForm").submit(function(event) {
         event.preventDefault();
@@ -8,7 +10,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            url: "../backend/login.php",
+            url: `${API_URL}/login.php`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),

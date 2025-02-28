@@ -1,3 +1,5 @@
+import API_URL from "./config.js";
+
 $(document).ready(function() {
 
     $(".header").load("header.html")
@@ -6,7 +8,7 @@ $(document).ready(function() {
 
     function verify_worker_registration(){
         $.ajax({
-            url: "../backend/check_worker_registration.php",
+            url: `${API_URL}/check_worker_registration.php`,
             type: "POST",
             contentType: "application/json",
             success: function(response) {
@@ -40,7 +42,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            url: "../backend/worker_registration.php",
+            url: `${API_URL}/worker_registration.php`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),

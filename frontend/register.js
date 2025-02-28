@@ -1,3 +1,6 @@
+const API_URL = "http://localhost:8000"; // Mude isso no Docker
+
+
 $(document).ready(function() {
     $("#registerForm").submit(function(event) {
         event.preventDefault();
@@ -10,7 +13,7 @@ $(document).ready(function() {
         };
 
         $.ajax({
-            url: "../backend/register.php",
+            url: `${API_URL}/register.php`,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),
