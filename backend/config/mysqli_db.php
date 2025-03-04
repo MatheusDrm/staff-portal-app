@@ -2,14 +2,12 @@
 
     session_start();
 
-    header("Access-Control-Allow-Origin: *");
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type");
-    header("Access-Control-Max-Age: 86400"); 
+
 
     define('DB_HOST', 'localhost');
     define('DB_USER', 'matheusdrm');
-    define('DB_PASSWORD', 'drm978');
+    define('DB_PASSWORD', 'L4mp3j0_978_675_!');
     define('DB_NAME', 'matriz_ensaios');
 
     try{

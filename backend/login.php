@@ -1,16 +1,13 @@
 <?php
 
-    session_start();
-
-
-    header("Content-Type: application/json");
-    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permite chamadas do frontend
-    header("Access-Control-Allow-Credentials: true"); // Permite envio de cookies (sessão)
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type");
-
     include __DIR__ . '/config/pdo_db.php';
 
+    if ($_SERVER['REQUEST_URI'] === "/favicon.ico") {
+        http_response_code(204);
+        exit();
+    }
+
+    // echo "Usuário na Sessão: " . $_SESSION['usuario'] . "<br>";
 
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -29,7 +26,7 @@
                 if($user){
                     if(password_verify($password, $user['senha'])) {
                         $_SESSION['usuario'] = $user['usuario'];
-                        $_SESSION['id'] = $user['id'];
+                        $_SESSION['user_id'] = $user['id'];
                         echo json_encode(["success" => true, "message" => "Login realizado com sucesso!"]);
                         exit();
                     } else {

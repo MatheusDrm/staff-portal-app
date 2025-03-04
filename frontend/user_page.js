@@ -11,6 +11,7 @@ $(document).ready(function() {
             url: `${API_URL}/check_worker_registration.php`,
             type: "POST",
             contentType: "application/json",
+            xhrFields: { withCredentials: true }, 
             success: function(response) {
                 // Caso o usuario já esteja registrado
                 if (response.success && response.data) {
@@ -46,6 +47,7 @@ $(document).ready(function() {
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),
+            xhrFields: { withCredentials: true }, 
             success: function(response) {
                 if (response.success) {
                     showMessage(response.message, "sucesso");

@@ -11,6 +11,7 @@ $(document).ready(function() {
         xhrFields: { withCredentials: true }, // Enviar cookies de sessão
         success: function(response) {
             if (!response.usuarioLogado) {
+                console.log("Usuario nao logado");
                 window.location.href = "login.html"; // Redireciona se não estiver logado
             } else {
                 // Buscar ID do usuário

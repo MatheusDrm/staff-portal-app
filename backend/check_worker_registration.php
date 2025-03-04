@@ -1,12 +1,5 @@
 <?php
-    session_start();
-    header("Content-Type: application/json");
 
-    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permite chamadas do frontend
-    header("Access-Control-Allow-Credentials: true"); // Permite envio de cookies (sessão)
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type");
-    
     include __DIR__ . '/config/pdo_db.php';
 
     // Garante que o usuário está autenticado

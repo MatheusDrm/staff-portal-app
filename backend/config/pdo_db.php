@@ -2,12 +2,11 @@
 
     session_start();
 
-    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permite chamadas do frontend
-    header("Access-Control-Allow-Credentials: true"); // Permite envio de cookies (sessão)
-    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permitir chamadas do frontend
+    header("Access-Control-Allow-Credentials: true"); // Permitir envio de cookies/sessão
     header("Access-Control-Allow-Headers: Content-Type");
-
-
+    header("Access-Control-Allow-Methods: GET, POST");
 
     define('DB_HOST', 'localhost');
     define('DB_USER', 'matheusdrm');

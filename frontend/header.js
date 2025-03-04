@@ -21,6 +21,7 @@ $(document).ready(function() {
         url: `${API_URL}/include/header.php`,
         type: "GET",
         dataType: "json",
+        xhrFields: { withCredentials: true }, 
         success: function(response) {
             if (response.success) {
                 $("#header-container").html(response.html);
@@ -42,6 +43,7 @@ $(document).on("click", ".logout", function(event) {
             url: `${API_URL}/logout.php`,
             type: "POST",
             dataType: "json",
+            xhrFields: { withCredentials: true }, 
             success: function(response) {
                 console.log("Resposta do logout:", response); // Debug no console
 

@@ -14,6 +14,7 @@ $(document).ready(function() {
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(formData),
+            xhrFields: { withCredentials: true }, // 🔥 Permite envio de cookies/sessão
             success: function(response) {
                 if (response.success) {
                     showMessage(response.message, "sucesso");

@@ -1,12 +1,15 @@
-echo "<?php echo 'Servidor PHP rodando corretamente!'; ?>"
 
 <?php
-session_start();
-$_SESSION['teste'] = $_SESSION['teste'] ?? 0;
-$_SESSION['teste']++;
+    session_start();
 
-echo json_encode([
-    "session_id" => session_id(),
-    "teste" => $_SESSION['teste']
-]);
+    header("Content-Type: application/json");
+    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permitir chamadas do frontend
+    header("Access-Control-Allow-Credentials: true"); // Permitir envio de cookies/sessão
+    header("Access-Control-Allow-Headers: Content-Type");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+    echo json_encode([
+        "session_id" => session_id(),
+        "usuario" =>  $_SESSION['usuario']
+    ]);
 ?>

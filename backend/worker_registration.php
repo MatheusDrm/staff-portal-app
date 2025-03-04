@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    header("Content-Type: application/json");
+
     include __DIR__ . '/config/pdo_db.php';
 
     // Garante que a sessão existe
