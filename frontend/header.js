@@ -7,6 +7,7 @@ $(document).ready(function() {
         url: `${API_URL}/check_login.php`,
         type: "GET",
         dataType: "json",
+        xhrFields: { withCredentials: true }, // Enviar cookies de sessão
         success: function(response) {
             if (!response.usuarioLogado) {
                 window.location.href = "login.html"; 

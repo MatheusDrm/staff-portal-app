@@ -1,9 +1,13 @@
 <?php
 
-    header("Access-Control-Allow-Origin: *");
+    session_start();
+
+    header("Access-Control-Allow-Origin: http://localhost:8080"); // Permite chamadas do frontend
+    header("Access-Control-Allow-Credentials: true"); // Permite envio de cookies (sessão)
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type");
-    header("Access-Control-Max-Age: 86400"); 
+
+
 
     define('DB_HOST', 'localhost');
     define('DB_USER', 'matheusdrm');
