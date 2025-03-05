@@ -8,6 +8,11 @@
     header("Content-Type: application/json");
 
     header("Access-Control-Allow-Origin: http://localhost:8080"); // Permite chamadas do frontend
+    // header("Access-Control-Allow-Origin: http://frontend:80"); // Permitir chamadas do frontend no Docker
+    // header('Access-Control-Allow-Origin', '*');
+    // header('Access-Control-Allow-Methods', '*');
+    // header('Access-Control-Allow-Headers', '*');
+
     header("Access-Control-Allow-Credentials: true"); // Permite envio de cookies (sessão)
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
     header("Access-Control-Allow-Headers: Content-Type");

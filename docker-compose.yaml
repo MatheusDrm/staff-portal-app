@@ -1,0 +1,73 @@
+services:
+  ### BACKEND (PHP + Apache)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend_service
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      - API_URL=http://backend:80
+      - DB_HOST=db
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+    networks:
+      - app_network
+
+  ### FRONTEND (Nginx)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_service
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    networks:
+      - app_network
+
+  ### DATABASE (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: mysql_service
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql  # Persistência dos dados
+      - ./sql_backup/backup_matrizEnsaios.sql:/docker-entrypoint-initdb.d/backup.sql  # Importa o banco na primeira vez
+    networks:
+      - app_network
+
+  ### PHPMYADMIN (Opcional)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_service
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8081:80"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

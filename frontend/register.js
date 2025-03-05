@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000"; // Mude isso no Docker
+import API_URL from "./config.js";
 
 
 $(document).ready(function() {
